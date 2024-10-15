@@ -1,1 +1,59 @@
-<p>sign-in works!</p>
+<div class="sign-in-section">
+  <form class="sign-in-form" [formGroup]="signInForm" (ngSubmit)="signIn()">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        formControlName="email"
+        matInput
+        placeholder="something@somewhere.com"
+      />
+      @if (signInForm.hasError("required", "email")) {
+        <mat-error>Email is required</mat-error>
+      } @else if (signInForm.hasError("email", "email")) {
+        <mat-error>Email is invalid</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput type="password" />
+      @if (signInForm.hasError("required", "password")) {
+        <mat-error>Password is required</mat-error>
+      } @else if (signInForm.hasError("minlength", "password")) {
+        <mat-error>Password must be at least 8 characters</mat-error>
+      }
+    </mat-form-field>
+    <button
+      class="sign-in-button"
+      color="primary"
+      mat-flat-button
+      type="submit"
+      [disabled]="!signInForm.valid"
+    >
+      Sign-in
+    </button>
+  </form>
+
+  <span class="or-text">or</span>
+
+  <div class="google-sign-in">
+    <!-- Load the Google login script -->
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <div
+      id="g_id_onload"
+      data-client_id="633850912487-dpghf82plokvq3f9trud7k9jatn0490k.apps.googleusercontent.com"
+      data-context="signin"
+      data-ux_mode="popup"
+      data-login_uri="http://localhost:8000/sign-in/with-google"
+      data-auto_prompt="false"
+    ></div>
+    <div
+      class="g_id_signin"
+      data-type="standard"
+      data-shape="pill"
+      data-theme="outline"
+      data-text="signin_with"
+      data-size="large"
+      data-logo_alignment="left"
+    ></div>
+  </div>
+</div>

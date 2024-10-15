@@ -1,0 +1,35 @@
+:host {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+}
+
+.sign-in-section {
+  display: grid;
+  margin: auto;
+  width: 320px;
+}
+
+.sign-in-form {
+  display: flex;
+  flex-flow: column;
+
+  mat-form-field {
+    margin: 8px;
+  }
+
+  .sign-in-button {
+    margin: 8px;
+  }
+}
+
+.or-text {
+  margin: auto;
+  padding: 24px 0;
+}
+
+.google-sign-in {
+  display: flex;
+  justify-content: center;
+}
