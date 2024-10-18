@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { IAMService } from "@cloud-community/iam";
+import { IamService } from "@cloud-community/iam";
 import { take } from "rxjs/operators";
 
 @Component({
@@ -13,7 +13,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private iamService: IAMService
+    private iamService: IamService
   ) {
     this.signInForm = this.formBuilder.group({
       email: this.formBuilder.control("", [
@@ -37,10 +37,9 @@ export class SignInComponent implements OnInit {
   signIn(): void {
     const email = this.signInForm.get("email")?.value;
     const password = this.signInForm.get("password")?.value;
-    console.log("Signing in...", email, password);
     this.iamService
       .signInWithPassword({ email, password })
       .pipe(take(1))
-      .subscribe(() => console.log("Got here in the frontend!"));
+      .subscribe(() => {});
   }
 }

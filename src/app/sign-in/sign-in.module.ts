@@ -3,7 +3,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import { provideRouter } from "@angular/router";
+import { provideRouter, RouterModule } from "@angular/router";
+import { CreateAccountComponent } from "./create-account/create-account.component";
 import { SignInComponent } from "./sign-in.component";
 import { routes } from "./sign-in.routes";
 
@@ -14,8 +15,9 @@ import { routes } from "./sign-in.routes";
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    RouterModule,
   ],
-  declarations: [SignInComponent],
+  declarations: [SignInComponent, CreateAccountComponent],
   providers: [provideRouter(routes)],
 })
 export class SignInModule {}

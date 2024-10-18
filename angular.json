@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cloud-community-client": {
+    "cloud-9-client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/cloud-community-client",
+            "outputPath": "dist/cloud-9-client",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "cloud-community-client:build:production"
+              "buildTarget": "cloud-9-client:build:production"
             },
             "development": {
-              "buildTarget": "cloud-community-client:build:development"
+              "buildTarget": "cloud-9-client:build:development"
             }
           },
           "defaultConfiguration": "development"

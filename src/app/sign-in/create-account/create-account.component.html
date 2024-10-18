@@ -1,0 +1,39 @@
+<div class="create-account-section">
+  <form
+    class="create-account-form"
+    [formGroup]="createAccountForm"
+    (ngSubmit)="createAccount()"
+  >
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        formControlName="email"
+        matInput
+        placeholder="something@somewhere.com"
+      />
+      @if (createAccountForm.hasError("required", "email")) {
+        <mat-error>Email is required</mat-error>
+      } @else if (createAccountForm.hasError("email", "email")) {
+        <mat-error>Email is invalid</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput type="password" />
+      @if (createAccountForm.hasError("required", "password")) {
+        <mat-error>Password is required</mat-error>
+      } @else if (createAccountForm.hasError("minlength", "password")) {
+        <mat-error>Password must be at least 8 characters</mat-error>
+      }
+    </mat-form-field>
+    <button
+      class="create-account-button"
+      color="primary"
+      mat-flat-button
+      type="submit"
+      [disabled]="!createAccountForm.valid"
+    >
+      Create account
+    </button>
+  </form>
+</div>

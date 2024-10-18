@@ -5,13 +5,13 @@
   justify-content: center;
 }
 
-.sign-in-section {
+.create-account-section {
   display: grid;
   margin: auto;
   width: 320px;
 }
 
-.sign-in-form {
+.create-account-form {
   display: flex;
   flex-flow: column;
 
@@ -19,22 +19,7 @@
     margin: 8px;
   }
 
-  .sign-in-button {
+  .create-account-button {
     margin: 8px;
   }
-}
-
-.or-text {
-  margin: auto;
-  padding: 24px 0;
-}
-
-.google-sign-in {
-  display: flex;
-  justify-content: center;
-}
-
-.register-link {
-  margin: auto;
-  padding: 8px;
 }

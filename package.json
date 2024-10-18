@@ -1,5 +1,5 @@
 {
-  "name": "cloud-community-client",
+  "name": "cloud-9-client",
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",
@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
-    "@cloud-community/iam": "^0.0.1-rc1",
+    "@cloud-9/iam": "^0.0.1-rc2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
