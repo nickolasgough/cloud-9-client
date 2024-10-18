@@ -7,7 +7,7 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { provideRouter, RouterModule } from "@angular/router";
-import { ApiModule, Configuration } from "@cloud-community/iam";
+import { ApiModule, Configuration } from "@cloud-9/iam";
 import { AppComponent } from "./app.component";
 import { routes } from "./app.routes";
 

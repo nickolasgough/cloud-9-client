@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { IamService } from "@cloud-community/iam";
+import { IamService } from "@cloud-9/iam";
 import { take } from "rxjs/operators";
 
 @Component({
