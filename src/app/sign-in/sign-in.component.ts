@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { IAMService } from "@cloud-community/iam";
+import { take } from "rxjs/operators";
 
 @Component({
   selector: "app-sign-in",
@@ -9,7 +11,10 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class SignInComponent implements OnInit {
   protected signInForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private iamService: IAMService
+  ) {
     this.signInForm = this.formBuilder.group({
       email: this.formBuilder.control("", [
         Validators.required,
@@ -33,5 +38,9 @@ export class SignInComponent implements OnInit {
     const email = this.signInForm.get("email")?.value;
     const password = this.signInForm.get("password")?.value;
     console.log("Signing in...", email, password);
+    this.iamService
+      .signInWithPassword({ email, password })
+      .pipe(take(1))
+      .subscribe(() => console.log("Got here in the frontend!"));
   }
 }
