@@ -31,7 +31,7 @@ export class CreateAccountComponent {
     const email = this.createAccountForm.get("email")?.value;
     const password = this.createAccountForm.get("password")?.value;
     this.iamService
-      .createAccount({ email, password })
+      .createUser({ email, password })
       .pipe(take(1))
       .subscribe(() => {});
   }

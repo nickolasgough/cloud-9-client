@@ -5,6 +5,12 @@
   justify-content: center;
 }
 
+.app-logo {
+  height: 30vh;
+  margin: auto;
+  padding: 16px;
+}
+
 .sign-in-section {
   display: grid;
   margin: auto;
@@ -16,17 +22,17 @@
   flex-flow: column;
 
   mat-form-field {
-    margin: 8px;
+    margin: 4px;
   }
 
   .sign-in-button {
-    margin: 8px;
+    margin: 4px;
   }
 }
 
 .or-text {
   margin: auto;
-  padding: 24px 0;
+  padding: 16px 0;
 }
 
 .google-sign-in {
