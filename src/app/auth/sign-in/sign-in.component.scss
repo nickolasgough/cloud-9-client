@@ -8,13 +8,11 @@
 .app-logo {
   height: 30vh;
   margin: auto;
-  padding: 16px;
 }
 
 .sign-in-section {
   display: grid;
   margin: auto;
-  width: 320px;
 }
 
 .sign-in-form {
@@ -43,4 +41,9 @@
 .register-link {
   margin: auto;
   padding: 8px;
+}
+
+.invalid-credentials {
+  margin: -8px auto;
+  padding-bottom: 16px;
 }

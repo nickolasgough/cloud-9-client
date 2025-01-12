@@ -11,13 +11,13 @@
   padding: 16px;
 }
 
-.create-account-section {
+.sign-up-section {
   display: grid;
   margin: auto;
   width: 320px;
 }
 
-.create-account-form {
+.sign-up-form {
   display: flex;
   flex-flow: column;
 
@@ -25,7 +25,7 @@
     margin: 8px;
   }
 
-  .create-account-button {
+  .sign-up-button {
     margin: 8px;
   }
 }

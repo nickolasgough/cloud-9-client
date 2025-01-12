@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, signal } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { IamService } from "@cloud-9/iam";
 import { take } from "rxjs/operators";
@@ -10,6 +10,7 @@ import { take } from "rxjs/operators";
 })
 export class SignInComponent implements OnInit {
   protected signInForm: FormGroup;
+  protected invalidCredentials = signal(false);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,9 +38,16 @@ export class SignInComponent implements OnInit {
   signIn(): void {
     const email = this.signInForm.get("email")?.value;
     const password = this.signInForm.get("password")?.value;
+    this.invalidCredentials.set(false);
     this.iamService
       .signInWithPassword({ email, password })
       .pipe(take(1))
-      .subscribe(() => {});
+      .subscribe({
+        error: (err) => {
+          if ([403, 404].includes(err?.status)) {
+            this.invalidCredentials.set(true);
+          }
+        },
+      });
   }
 }

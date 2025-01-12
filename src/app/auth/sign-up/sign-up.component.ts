@@ -1,21 +1,23 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { IamService } from "@cloud-9/iam";
 import { take } from "rxjs/operators";
 
 @Component({
-  selector: "app-create-account",
-  templateUrl: "./create-account.component.html",
-  styleUrl: "./create-account.component.scss",
+  selector: "app-sign-up",
+  templateUrl: "./sign-up.component.html",
+  styleUrl: "./sign-up.component.scss",
 })
-export class CreateAccountComponent {
-  protected createAccountForm: FormGroup;
+export class SignUpComponent {
+  protected createUserForm: FormGroup;
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private iamService: IamService
   ) {
-    this.createAccountForm = this.formBuilder.group({
+    this.createUserForm = this.formBuilder.group({
       email: this.formBuilder.control("", [
         Validators.required,
         Validators.email,
@@ -27,12 +29,16 @@ export class CreateAccountComponent {
     });
   }
 
-  createAccount(): void {
-    const email = this.createAccountForm.get("email")?.value;
-    const password = this.createAccountForm.get("password")?.value;
+  createUser(): void {
+    const email = this.createUserForm.get("email")?.value;
+    const password = this.createUserForm.get("password")?.value;
     this.iamService
       .createUser({ email, password })
       .pipe(take(1))
-      .subscribe(() => {});
+      .subscribe({
+        next: () => {
+          this.router.navigateByUrl("/home");
+        },
+      });
   }
 }

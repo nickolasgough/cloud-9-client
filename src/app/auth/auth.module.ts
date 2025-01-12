@@ -4,9 +4,9 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { provideRouter, RouterModule } from "@angular/router";
-import { CreateAccountComponent } from "./create-account/create-account.component";
-import { SignInComponent } from "./sign-in.component";
-import { routes } from "./sign-in.routes";
+import { routes } from "./auth.routes";
+import { SignInComponent } from "./sign-in/sign-in.component";
+import { SignUpComponent } from "./sign-up/sign-up.component";
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { routes } from "./sign-in.routes";
     MatButtonModule,
     RouterModule,
   ],
-  declarations: [SignInComponent, CreateAccountComponent],
+  declarations: [SignUpComponent, SignInComponent],
   providers: [provideRouter(routes)],
 })
-export class SignInModule {}
+export class AuthModule {}

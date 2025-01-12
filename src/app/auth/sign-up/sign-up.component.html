@@ -1,9 +1,9 @@
-<div class="create-account-section">
+<div class="sign-up-section">
   <img class="app-logo" src="assets/cloud-9-logo.png" />
   <form
-    class="create-account-form"
-    [formGroup]="createAccountForm"
-    (ngSubmit)="createAccount()"
+    class="sign-up-form"
+    [formGroup]="createUserForm"
+    (ngSubmit)="createUser()"
   >
     <mat-form-field>
       <mat-label>Email</mat-label>
@@ -12,27 +12,27 @@
         matInput
         placeholder="something@somewhere.com"
       />
-      @if (createAccountForm.hasError("required", "email")) {
+      @if (createUserForm.hasError("required", "email")) {
         <mat-error>Email is required</mat-error>
-      } @else if (createAccountForm.hasError("email", "email")) {
+      } @else if (createUserForm.hasError("email", "email")) {
         <mat-error>Email is invalid</mat-error>
       }
     </mat-form-field>
     <mat-form-field>
       <mat-label>Password</mat-label>
       <input formControlName="password" matInput type="password" />
-      @if (createAccountForm.hasError("required", "password")) {
+      @if (createUserForm.hasError("required", "password")) {
         <mat-error>Password is required</mat-error>
-      } @else if (createAccountForm.hasError("minlength", "password")) {
+      } @else if (createUserForm.hasError("minlength", "password")) {
         <mat-error>Password must be at least 8 characters</mat-error>
       }
     </mat-form-field>
     <button
-      class="create-account-button"
+      class="sign-up-button"
       color="primary"
       mat-flat-button
       type="submit"
-      [disabled]="!createAccountForm.valid"
+      [disabled]="!createUserForm.valid"
     >
       Create account
     </button>

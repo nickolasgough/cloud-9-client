@@ -28,9 +28,6 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Sensitive project files
-/sensitive
-
 # Miscellaneous
 /.angular/cache
 .sass-cache/

@@ -23,6 +23,9 @@
         <mat-error>Password must be at least 8 characters</mat-error>
       }
     </mat-form-field>
+    @if (invalidCredentials()) {
+      <mat-error class="invalid-credentials">Invalid credentials</mat-error>
+    }
     <button
       class="sign-in-button"
       color="primary"
